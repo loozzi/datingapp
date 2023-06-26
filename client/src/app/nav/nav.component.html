@@ -1,0 +1,41 @@
+<nav class="p-3 text-bg-primary">
+	<div class="container">
+		<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-between">
+			<h3>
+				<a routerLink="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+					Dating App
+				</a>
+			</h3>
+
+			<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+				<ng-container *ngIf="accountService.currentUser$ | async">
+					<li><a routerLink="/members" class="nav-link px-2 text-dark" routerLinkActive="text-white">Matches</a>
+					</li>
+					<li><a routerLink="/lists" class="nav-link px-2 text-dark" routerLinkActive="text-white">Lists</a></li>
+					<li><a routerLink="/messages" class="nav-link px-2 text-dark" routerLinkActive="text-white">Messages</a>
+					</li>
+					<li><a routerLink="#" (click)="logout()" class="nav-link px-2 text-dark"
+							routerLinkActive="text-white">Logout</a></li>
+				</ng-container>
+			</ul>
+
+			<div *ngIf="(accountService.currentUser$ | async) as user" class="dropdown" ngbDropdown>
+				<div class="dropdown-toggle text-light" ngbDropdownToggle style="cursor: pointer;">Welcome, {{user?.username |
+					titlecase}}</div>
+				<div class="dropdown-menu" ngbDropdownMenu>
+					<a class="dropdown-item" routerLink="/member/edit">Edit Profile</a>
+					<a class="dropdown-item" (click)="logout()">Logout</a>
+				</div>
+			</div>
+
+			<form *ngIf="(accountService.currentUser$ | async) === null" #loginForm="ngForm"
+				class="form-inline mt-2 mt-md-0 d-flex" (ngSubmit)="login()">
+				<input name="username" [(ngModel)]="model.username" type="text" class="form-control me-sm-2"
+					placeholder="Username">
+				<input name="password" [(ngModel)]="model.password" type="password" class="form-control me-sm-2"
+					placeholder="Password">
+				<button type="submit" class="btn btn-outline-light me-2">Login</button>
+			</form>
+		</div>
+	</div>
+</nav>

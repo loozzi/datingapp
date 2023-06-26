@@ -75,3 +75,6 @@ C:\Users\Loozzi\Documents\Project\DatingApp\API\bin\Debug\net7.0\System.Identity
 C:\Users\Loozzi\Documents\Project\DatingApp\API\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Loozzi\Documents\Project\DatingApp\API\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
 C:\Users\Loozzi\Documents\Project\DatingApp\API\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Loozzi\Documents\Project\DatingApp\API\bin\Debug\net7.0\Data\UserSeedData.json
+C:\Users\Loozzi\Documents\Project\DatingApp\API\bin\Debug\net7.0\AutoMapper.dll
+C:\Users\Loozzi\Documents\Project\DatingApp\API\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
