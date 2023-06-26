@@ -1,4 +1,4 @@
-<div class="row" *ngIf="member; else noMember">
+<div class="row" *ngIf="member">
 	<div class="col-4 text-center">
 		<h2>Your Profile</h2>
 	</div>
@@ -74,12 +74,8 @@
 				</form>
 			</mat-tab>
 			<mat-tab label="Edit Photos">
-				<h4>Photos edit</h4>
+				<div><app-photo-editor [member]="member"></app-photo-editor></div>
 			</mat-tab>
 		</mat-tab-group>
 	</div>
 </div>
-
-<ng-template #noMember>
-	<h2>Member isn't exist.</h2>
-</ng-template>

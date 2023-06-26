@@ -20,8 +20,11 @@
 			</ul>
 
 			<div *ngIf="(accountService.currentUser$ | async) as user" class="dropdown" ngbDropdown>
-				<div class="dropdown-toggle text-light" ngbDropdownToggle style="cursor: pointer;">Welcome, {{user?.username |
-					titlecase}}</div>
+				<div class="d-flex align-items-center" ngbDropdownToggle style="cursor: pointer;">
+					<img src="{{user?.photoUrl}}" alt="{{user?.username}}">
+					<div class="dropdown-toggle text-light">Welcome, {{user?.username |
+						titlecase}}</div>
+				</div>
 				<div class="dropdown-menu" ngbDropdownMenu>
 					<a class="dropdown-item" routerLink="/member/edit">Edit Profile</a>
 					<a class="dropdown-item" (click)="logout()">Logout</a>

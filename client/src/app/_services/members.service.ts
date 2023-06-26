@@ -42,4 +42,21 @@ export class MembersService {
       })
     );
   }
+
+  setMainPhoto(photoId: number): Observable<boolean> {
+    return this.http
+      .put(
+        this.baseUrl.concat('users/set-main-photo/').concat(photoId.toString()),
+        {}
+      )
+      .pipe(map(() => true));
+  }
+
+  deletePhoto(photoId: number): Observable<boolean> {
+    return this.http
+      .delete(
+        this.baseUrl.concat('users/delete-photo/').concat(photoId.toString())
+      )
+      .pipe(map(() => true));
+  }
 }

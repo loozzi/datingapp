@@ -4,6 +4,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { MatTabsModule } from '@angular/material/tabs';
 import { LightgalleryModule } from 'lightgallery/angular';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
   declarations: [],
@@ -15,7 +16,14 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MatTabsModule,
     LightgalleryModule,
     NgxSpinnerModule,
+    FileUploadModule,
   ],
-  exports: [ToastrModule, MatTabsModule, LightgalleryModule, NgxSpinnerModule],
+  exports: [
+    ToastrModule,
+    MatTabsModule,
+    LightgalleryModule,
+    NgxSpinnerModule,
+    FileUploadModule,
+  ],
 })
 export class SharedModule {}

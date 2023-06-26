@@ -78,3 +78,5 @@ C:\Users\Loozzi\Documents\Project\DatingApp\API\bin\Debug\net7.0\Microsoft.Ident
 C:\Users\Loozzi\Documents\Project\DatingApp\API\bin\Debug\net7.0\Data\UserSeedData.json
 C:\Users\Loozzi\Documents\Project\DatingApp\API\bin\Debug\net7.0\AutoMapper.dll
 C:\Users\Loozzi\Documents\Project\DatingApp\API\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Loozzi\Documents\Project\DatingApp\API\bin\Debug\net7.0\CloudinaryDotNet.dll
+C:\Users\Loozzi\Documents\Project\DatingApp\API\bin\Debug\net7.0\Newtonsoft.Json.dll
