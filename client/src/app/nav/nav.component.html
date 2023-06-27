@@ -21,7 +21,8 @@
 
 			<div *ngIf="(accountService.currentUser$ | async) as user" class="dropdown" ngbDropdown>
 				<div class="d-flex align-items-center" ngbDropdownToggle style="cursor: pointer;">
-					<img src="{{user?.photoUrl}}" alt="{{user?.username}}">
+					<img src="{{user?.photoUrl || './assets/user.png'}}" alt="{{user?.username}}"
+						onerror="this.onerror=null; this.src='./assets/user.png'">
 					<div class="dropdown-toggle text-light">Welcome, {{user?.username |
 						titlecase}}</div>
 				</div>

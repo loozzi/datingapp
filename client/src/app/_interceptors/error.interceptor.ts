@@ -32,7 +32,7 @@ export class ErrorInterceptor implements HttpInterceptor {
                 console.log(modalStateErrors.flat());
                 throw modalStateErrors.flat();
               } else {
-                this.toastr.error(error.statusText, error.status);
+                this.toastr.error(error.error, error.status);
               }
               break;
             case 401:

@@ -56,11 +56,12 @@
 				<h4>Photos</h4>
 				<lightgallery [settings]="settings" [onInit]="onInit">
 					<a *ngFor="let item of member.photos" className="gallery-item" [attr.href]="item.url">
-						<img className="img-responsive" style="width: 25%; 
+						<img className="img-responsive" style="width: 30%; 
 								aspect-ratio: 1/1; 
 								object-fit: cover; 
 								border-radius: 4px; 
-								margin-right: 8px;" src="{{ item.url }}" />
+								margin-right: 8px;
+								margin-bottom: 8px;" src="{{ item.url }}" />
 					</a>
 				</lightgallery>
 

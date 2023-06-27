@@ -1,14 +1,35 @@
-<form #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off">
+<form [formGroup]="registerForm" (ngSubmit)="registerForm.valid && register()" autocomplete="off">
 	<h2 class="text-center text-primary">Sign Up</h2>
 	<hr>
-	<div class="form-group mb-2">
-		<input type="text" name="username" class="form-control" [(ngModel)]="model.username" placeholder="Username">
+	<div class="form-group mb-3">
+		<label class="control-label me-2">I am a: </label>
+		<label class="form-check-label">
+			<input type="radio" value="male" class="form-check-input" formControlName="gender"> Male
+		</label>
+		<label class="form-check-label">
+			<input type="radio" value="female" class="form-check-input ms-2" formControlName="gender"> Female
+		</label>
 	</div>
-	<div class="form-group mb-2">
-		<input type="password" name="password" class="form-control" [(ngModel)]="model.password" placeholder="Password">
+	<app-text-input [formControl]="$any(registerForm.controls['username'])" [label]="'Username'"></app-text-input>
+	<app-text-input [formControl]="$any(registerForm.controls['knownAs'])" [label]="'Known As'"></app-text-input>
+	<app-text-input [formControl]="$any(registerForm.controls['dateOfBirth'])" [label]="'Date Of Birth'"
+		[type]="'date'"></app-text-input>
+	<app-text-input [formControl]="$any(registerForm.controls['city'])" [label]="'City'"></app-text-input>
+	<app-text-input [formControl]="$any(registerForm.controls['country'])" [label]="'Country'"></app-text-input>
+	<app-text-input [formControl]="$any(registerForm.controls['password'])" [label]="'Password'"
+		[type]="'password'"></app-text-input>
+	<app-text-input [formControl]="$any(registerForm.controls['confirmPassword'])" [label]="'Confirm Password'"
+		[type]="'password'"></app-text-input>
+
+	<div class="row" *ngIf="validationErrors.length > 0">
+		<ul class="text-danger">
+			<li *ngFor="let error of validationErrors">
+				{{error}}
+			</li>
+		</ul>
 	</div>
 	<div class="form-group text-center">
-		<button class="btn btn-success me-2" type="submit">Register</button>
+		<button class="btn btn-success me-2" type="submit" [disabled]="!registerForm.valid">Register</button>
 		<button class="btn btn-warning" (click)="cancel()">Cancel</button>
 	</div>
 </form>
