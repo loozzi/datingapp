@@ -23,7 +23,7 @@
 				<div class="d-flex align-items-center" ngbDropdownToggle style="cursor: pointer;">
 					<img src="{{user?.photoUrl || './assets/user.png'}}" alt="{{user?.username}}"
 						onerror="this.onerror=null; this.src='./assets/user.png'">
-					<div class="dropdown-toggle text-light">Welcome, {{user?.username |
+					<div class="text-light">Welcome, {{user?.knownAs |
 						titlecase}}</div>
 				</div>
 				<div class="dropdown-menu" ngbDropdownMenu>

@@ -24,6 +24,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { RegisterComponent } from './register/register.component';
 import { ServerErrorComponent } from './server-error/server-error.component';
 import { TextInputComponent } from './_forms/text-input/text-input.component';
+import { FormatDateAddressPipe } from './_pipe/format-date.pipe';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { TextInputComponent } from './_forms/text-input/text-input.component';
     MemberEditComponent,
     PhotoEditorComponent,
     TextInputComponent,
+    FormatDateAddressPipe,
   ],
   imports: [
     BrowserModule,

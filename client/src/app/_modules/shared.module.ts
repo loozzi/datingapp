@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ToastrModule } from 'ngx-toastr';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTabsModule } from '@angular/material/tabs';
 import { LightgalleryModule } from 'lightgallery/angular';
-import { NgxSpinnerModule } from 'ngx-spinner';
 import { FileUploadModule } from 'ng2-file-upload';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [],
@@ -17,6 +18,7 @@ import { FileUploadModule } from 'ng2-file-upload';
     LightgalleryModule,
     NgxSpinnerModule,
     FileUploadModule,
+    MatPaginatorModule,
   ],
   exports: [
     ToastrModule,
@@ -24,6 +26,8 @@ import { FileUploadModule } from 'ng2-file-upload';
     LightgalleryModule,
     NgxSpinnerModule,
     FileUploadModule,
+    MatPaginatorModule,
+    MatTabsModule,
   ],
 })
 export class SharedModule {}
