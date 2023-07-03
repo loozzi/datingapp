@@ -1,0 +1,90 @@
+.img-circle {
+	width: 32px;
+	aspect-ratio: 1/1;
+	object-fit: cover;
+}
+
+.card {
+	border: none;
+}
+.chat {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.chat-body {
+	position: relative;
+  display: inline-block;
+}
+
+.chat-body .chat-time {
+  opacity: 0;
+  width: auto;
+  background-color: #ddd;
+  color: #333;
+  text-align: center;
+  border-radius: 6px;
+	padding: 4px 8px;
+}
+
+.chat-body:hover .chat-time {
+  opacity: 1;
+	transition: all 0.4s ease-in-out;
+}
+
+.chat-content {
+	color: white;
+	border-radius: 18px;
+	padding: 4px 12px;
+	margin-bottom: 4px;
+}
+
+.recipient .chat-body .chat-time {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 102%;
+}
+
+.sender .chat-time {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	right: 102%;
+}
+
+.recipient .chat-content {
+	border-top-left-radius: 4px;
+	background-color: #BBB;
+}
+
+.sender .chat-group {
+	flex-direction: row-reverse;
+}
+
+.sender .chat-img {
+	margin-right: 0;
+	margin-left: 8px;
+}
+
+.sender .chat-content {
+	border-top-right-radius: 4px;
+	background-color: #1B6B93;
+}
+
+.recipient + .recipient .chat-img,
+.sender + .sender .chat-img {
+	opacity: 0;
+}
+
+.recipient + .recipient .chat li,
+.sender + .sender .chat li {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.recipient + .sender, 
+.sender + .recipient{
+	margin-top: 8px;
+}

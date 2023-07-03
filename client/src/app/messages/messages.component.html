@@ -1,0 +1,80 @@
+<div class="container text-center">
+	<button type="button" [class]="{
+		'btn': true,
+		'btn-primary': container === 'Unread',
+		'btn-outline-primary': container !== 'Unread',
+	}" (click)="setContainer('Unread')" style="border-top-right-radius: 0%; border-bottom-right-radius: 0;">
+		<i class="fa fa-envelope"></i>
+		Unread
+	</button>
+	<button type="button" [class]="{
+		'btn': true,
+		'btn-primary': container === 'Inbox',
+		'btn-outline-primary': container !== 'Inbox',
+	}" (click)="setContainer('Inbox')" style="border-radius: 0; border-right: none; border-left: none;">
+		<i class="fa fa-envelope-open"></i>
+		Inbox
+	</button>
+	<button type="button" [class]="{
+			'btn': true,
+			'btn-primary': container === 'Outbox',
+			'btn-outline-primary': container !== 'Outbox',
+		}" (click)="setContainer('Outbox')" style="border-top-left-radius: 0%; border-bottom-left-radius: 0;">
+		<i class="fa fa-paper-plane"></i>
+		Outbox
+	</button>
+</div>
+
+
+<div class="row" *ngIf="messages?.length === 0">
+	<h3>No messages</h3>
+</div>
+
+<div class="row" *ngIf="(messages?.length || 0) > 0">
+	<table class="table table-hover" style="cursor: pointer;">
+		<tr>
+			<th style="width: 40%;">
+				Message
+			</th>
+			<th style="width: 20%;">
+				From / To
+			</th>
+			<th style="width: 20%;">
+				Sent / Received
+			</th>
+			<th style="width: 20%;">
+
+			</th>
+		</tr>
+		<tr *ngFor="let message of messages" routerLink='{{
+			"/members/".concat(container === "Outbox" ? message.recipientUsername : message.senderUsername)
+		}}' [queryParams]="{tab: 'message'}">
+			<td>{{message.content}}</td>
+			<td>
+				<div *ngIf="container === 'Outbox'">
+					<img [src]="message.recipientPhotoUrl || './assets/user.png'"
+						onerror="this.onerror=null; this.src='./assets/user.png'" [alt]="message.recipientUsername"
+						class="img-circle rounded-circle me-2">
+					<strong>{{message.recipientUsername | titlecase}}</strong>
+				</div>
+				<div *ngIf="container !== 'Outbox'">
+					<img [src]="message.senderPhotoUrl || './assets/user.png'"
+						onerror="this.onerror=null; this.src='./assets/user.png'" [alt]="message.senderUsername"
+						class="img-circle rounded-circle me-2">
+					<strong>{{message.senderUsername | titlecase}}</strong>
+				</div>
+			</td>
+			<td>{{message.messageSent | timeago}}</td>
+			<td>
+				<button class="btn btn-danger" (click)="deleteMessage(message.id); $event.stopPropagation();">
+					Delete
+				</button>
+			</td>
+		</tr>
+	</table>
+</div>
+
+<mat-paginator *ngIf="(pagination?.totalItems || 0)> 0" #paginator class="demo-paginator"
+	(page)="handlePageEvent($event)" [length]="pagination?.totalItems" [pageSize]="pageSize" [hidePageSize]="true"
+	[pageIndex]="(pagination?.currentPage || 1) - 1" aria-label="Select page" [showFirstLastButtons]="true">
+</mat-paginator>

@@ -2,7 +2,11 @@
 {
     public class PaginationHeader
     {
-        public PaginationHeader(int currentPage, int itemsPerPage, int totalItems, int pagePages)
+        public PaginationHeader(
+            int currentPage, 
+            int itemsPerPage, 
+            int totalItems, 
+            int pagePages)
         {
             CurrentPage = currentPage;
             ItemsPerPage = itemsPerPage;

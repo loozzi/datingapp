@@ -5,14 +5,14 @@
 <div class="container text-center">
 	<button type="button" [class]="{
 		'btn': true,
-		'btn-danger': likeParams.predicate === 'liked',
-		'btn-outline-danger': likeParams.predicate !== 'liked',
+		'btn-primary': likeParams.predicate === 'liked',
+		'btn-outline-primary': likeParams.predicate !== 'liked',
 	}" (click)="setPredicate('liked')" style="border-top-right-radius: 0%; border-bottom-right-radius: 0;">
 		Members I like</button>
 	<button type="button" [class]="{
 		'btn': true,
-		'btn-danger': likeParams.predicate !== 'liked',
-		'btn-outline-danger': likeParams.predicate === 'liked',
+		'btn-primary': likeParams.predicate === 'likedBy',
+		'btn-outline-primary': likeParams.predicate !== 'likedBy',
 	}" (click)="setPredicate('likedBy')" style="border-top-left-radius: 0%; border-bottom-left-radius: 0;">
 		Members who like me</button>
 </div>

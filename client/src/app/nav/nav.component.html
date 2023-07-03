@@ -13,6 +13,8 @@
 					</li>
 					<li><a routerLink="/lists" class="nav-link px-2 text-dark" routerLinkActive="text-white">Lists</a></li>
 					<li><a routerLink="/messages" class="nav-link px-2 text-dark" routerLinkActive="text-white">Messages</a>
+					<li><a routerLink="/admin" class="nav-link px-2 text-dark" routerLinkActive="text-white"
+							*appHasRole="['Admin', 'Moderator']">Admin</a>
 					</li>
 					<li><a routerLink="#" (click)="logout()" class="nav-link px-2 text-dark"
 							routerLinkActive="text-white">Logout</a></li>

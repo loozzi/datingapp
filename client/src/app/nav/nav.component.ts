@@ -26,5 +26,6 @@ export class NavComponent implements OnInit {
 
   logout(): void {
     this.accountService.logout();
+    window.location.href = '/';
   }
 }

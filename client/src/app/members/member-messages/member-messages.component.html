@@ -1,0 +1,53 @@
+<div class="card">
+	<div class="card-body">
+		<div *ngIf="messages?.length === 0">
+			No messages yet... say hi by using the box below
+		</div>
+
+		<ul *ngIf="(messages?.length || 0) > 0" class="chat">
+			<li *ngFor="let message of messages?.reverse()" [class]="{
+				'sender': message.senderUsername !== username,
+				'recipient': message.senderUsername === username
+			}">
+				<div class="d-flex chat-group">
+					<span class="chat-img float-right">
+						<img [src]="message.senderPhotoUrl || './assets/user.png'"
+							onerror="this.onerror=null; this.src='./assets/user.png'" [alt]="message.senderUsername"
+							class="img-circle rounded-circle me-2">
+					</span>
+					<div class="chat-body">
+						<p class="chat-content">{{message.content}}</p>
+						<span class="chat-time">
+							{{message.messageSent | date:"hh:mm"}}
+						</span>
+					</div>
+					<span class="text-success" style="transform: translateY(10px); opacity: 0.7;"
+						*ngIf="(message.dateRead && message.senderUsername !== username); else unreadIcon">
+						({{message.dateRead | timeago}})
+						<img [src]="message.recipientPhotoUrl || './assets/user.png'"
+							onerror="this.onerror=null; this.src='./assets/user.png'" [alt]="message.recipientUsername"
+							class="img-circle rounded-circle me-2" style="width: 16px;">
+					</span>
+					<ng-template class="text-success" #unreadIcon>
+						<i class="fa-regular fa-circle-check"></i>
+					</ng-template>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	<div class="card-footer">
+		<form #messageForm="ngForm" (ngSubmit)="sendMessage()" autocomplete="off">
+			<div class="input-group">
+				<input required name="content" type="text" class="form-control input-sm me-2"
+					placeholder="Send a private message" [(ngModel)]="content">
+				<div class="input-group-append">
+					<button class="btn btn-primary" type="submit" [disabled]="!messageForm.valid">
+						Send
+						<i class="fa fa-paper-plane"></i>
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

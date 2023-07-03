@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Member } from '../_models/member';
 import { MembersService } from '../_services/members.service';
 import { LikeParams } from '../_models/likeParams';
@@ -9,12 +9,14 @@ import { Pagination } from '../_models/pagination';
   templateUrl: './lists.component.html',
   styleUrls: ['./lists.component.css'],
 })
-export class ListsComponent {
+export class ListsComponent implements OnInit {
   members: Partial<Member[]> | undefined = [];
   likeParams: LikeParams = new LikeParams();
   pagination?: Pagination;
 
-  constructor(private memberService: MembersService) {
+  constructor(private memberService: MembersService) {}
+
+  ngOnInit(): void {
     this.loadLikes();
   }
 

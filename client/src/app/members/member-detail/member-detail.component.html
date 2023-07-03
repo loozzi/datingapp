@@ -23,11 +23,12 @@
 			</div>
 			<div class="card-footer">
 				<div class="btn-group d-flex">
-					<button class="btn btn-danger">
+					<button class="btn btn-danger" (click)="addLike(member)">
 						Like
 						<i class="fa fa-heart"></i>
 					</button>
-					<button class="btn btn-success">
+					<button class="btn btn-success" [routerLink]="'/members/'+member.userName"
+						routerLinkActive="router-link-active" [queryParams]="{tab: 'message'}">
 						Message
 						<i class="fa fa-envelope"></i>
 					</button>
@@ -37,7 +38,7 @@
 	</div>
 
 	<div class="col-8">
-		<mat-tab-group class="">
+		<mat-tab-group [selectedIndex]="tabIndex">
 			<mat-tab label="About {{member.knownAs}}">
 				<div>
 					<h4>Description</h4>
@@ -66,7 +67,11 @@
 				</lightgallery>
 
 			</mat-tab>
-			<mat-tab label="Messages">Content for Tab 3</mat-tab>
+			<mat-tab label="Messages">
+				<ng-template matTabContent>
+					<app-member-messages [username]="member.userName"></app-member-messages>
+				</ng-template>
+			</mat-tab>
 		</mat-tab-group>
 	</div>
 </div>
